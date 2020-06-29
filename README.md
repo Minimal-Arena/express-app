@@ -1,13 +1,14 @@
-# ESSENTIALISM API
+# MINIMAL ARENA API
 
 ## API Base URL
-`https://minimal-arena.herokuapp.com/`
+LIVE URL: `https://minimal-arena.herokuapp.com/`
+STAGING URL: `https://minimal-staging.herokuapp.com/`
 
 #### Server Status
 **GET**: `/` </br>
 When active, will respond with: 
 ```
-ESSENTIALISM server is alive
+MINIMAL ARENA server is alive
 ```
 
 ## Table of Contents
