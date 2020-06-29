@@ -1,0 +1,6 @@
+exports.seed = function (knex) {
+    return knex('users').insert([
+        { username: "Test User", password: "$2b$11$AdsDMOOnNWJH/GV0I6EVk.KROYPClTOgTMHjR31oXUblUS1UxiUDm" },
+        { username: "Some User", password: "$2b$11$ccVujqV0PC74/Vs5ch78XumD6l3LFnHzhIFXuvo6Dk5umnw0BuScW" }
+    ])
+}
