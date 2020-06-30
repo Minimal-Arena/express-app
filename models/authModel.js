@@ -24,13 +24,13 @@ function findUserById(id) {
 // for User login
 function findUser(filter) {
     return db('users')
-        .select('id', 'username', 'password')
+        .select('id', 'username', 'email', 'password')
         .where(filter)
 }
 
 // for listing users for dev testing (excluding passwords)
 function getUsers() {
     return db('users')
-        .select('id', 'username')
+        .select('id', 'username', 'email')
 }
 
