@@ -1,7 +1,7 @@
 # MINIMAL ARENA API
 
 ## API Base URL
-LIVE URL: `https://minimal-arena.herokuapp.com/`
+LIVE URL: `https://minimal-arena.herokuapp.com/` </br>
 STAGING URL: `https://minimal-staging.herokuapp.com/`
 
 #### Server Status
@@ -31,10 +31,12 @@ Authentication expires in: `3 hours`
 Test Account Seeds:
 ```
 username: Test User
+email: test@test.com
 password: 1234
 ```
 ```
 username: Some User
+email: user@user.com
 password: 1234
 ```
 ---
@@ -48,6 +50,7 @@ Registering an existing user will give a response:
 ```
 {
     "username": "myuser",
+    "email": "myemail@myemail.com"
     "password": "verysecretpass"
 }
 ```

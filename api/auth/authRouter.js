@@ -22,8 +22,8 @@ router.get("/dev", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-  if (!req.body || !req.body.password || !req.body.username) {
-    res.status(400).json({ message: "Username and password are required." });
+  if (!req.body || !req.body.password || !req.body.username || !req.body.email) {
+    res.status(400).json({ message: "Username, email, and password are required." });
   } else {
     let newUser = req.body;
     const hash = bcrypt.hashSync(newUser.password, 11);
