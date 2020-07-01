@@ -6,7 +6,9 @@ const morgan = require('morgan');
 require('dotenv').config();
 
 // Routes Imports
-const authRouter = require('./auth/authRouter.js');
+const authRouter = require('./routes/auth/authRouter');
+const classRouter = require('./routes/game/class/classRouter');
+const skillRouter = require('./routes/game/skill/skillRouter');
 
 // Middleware Imports
 
@@ -19,6 +21,8 @@ server.use(morgan('dev'));
 server.use(express.json());
 
 server.use('/api/auth', authRouter);
+server.use('/api/game/class', classRouter);
+server.use('/api/game/skill', skillRouter);
 
 // Alive messages
 server.get('/', (req, res) => {
