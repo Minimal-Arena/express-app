@@ -17,7 +17,9 @@ MINIMAL ARENA server is alive
 - [Authentication](#authentication)
     - [Register](#register-a-user) (POST)
     - [Login](#login-with-a-registered-user) (POST)
-
+- [Game](#game)
+    - [Classes](#classes) (GET)
+    - [Skills](#skills) (GET)
 - [DB Schema](#database-schema)
 
 ## Install
@@ -87,6 +89,84 @@ Will return:
     "token": string
 }
 ```
+
+# Game
+
+## Classes
+**GET** `/api/game/class`
+```
+[
+    {
+        "id": 1,
+        "name": "Archer",
+        "skill_slot1": 1,
+        "skill_slot2": 2,
+        "skill_slot3": 3,
+        "mana": 70,
+        "health": 80,
+        "power": 100
+    },
+    {
+        "id": 2,
+        "name": "Warewolf",
+        "skill_slot1": 3,
+        "skill_slot2": 1,
+        "skill_slot3": 2,
+        "mana": 40,
+        "health": 130,
+        "power": 180
+    }
+]
+```
+**GET** `/api/game/class/:id`
+```
+ {
+    "id": 1,
+    "name": "Archer",
+    "skill_slot1": 1,
+    "skill_slot2": 2,
+    "skill_slot3": 3,
+    "mana": 70,
+    "health": 80,
+    "power": 100
+}
+```
+
+## Skills
+**GET** `/api/game/skill`
+```
+[
+    {
+        "id": 1,
+        "name": "Fireball",
+        "base_power": 100,
+        "type": "magic"
+    },
+    {
+        "id": 2,
+        "name": "Dagger Slash",
+        "base_power": 70,
+        "type": "physical"
+    },
+    {
+        "id": 3,
+        "name": "Spiritual Healing",
+        "base_power": 100,
+        "type": "magic"
+    }
+]
+```
+
+**GET** `/api/game/skill/:id`
+```
+{
+    "id": 1,
+    "name": "Fireball",
+    "base_power": 100,
+    "type": "magic"
+}
+```
+
 
 ### Database Schema
 

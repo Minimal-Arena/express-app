@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // root directory needs a .env file with a key of SECRET for this function to work.
 const secret = process.env.SECRET;
 
-const User = require("../../models/authModel.js");
+const User = require('../../models/authModel');
 
 router.get("/", (req, res) => {
   res.send(`<h2>Auth Route is alive.</h2>`);
