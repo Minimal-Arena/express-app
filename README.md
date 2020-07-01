@@ -18,6 +18,8 @@ MINIMAL ARENA server is alive
     - [Register](#register-a-user) (POST)
     - [Login](#login-with-a-registered-user) (POST)
 
+- [DB Schema](#database-schema)
+
 ## Install
 
 ```
@@ -85,3 +87,7 @@ Will return:
     "token": string
 }
 ```
+
+### Database Schema
+
+![logo](./ma-db-schema.png )

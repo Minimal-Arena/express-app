@@ -1,0 +1,77 @@
+CREATE TABLE Users (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	username string,
+	email string,
+	password string
+);
+
+CREATE TABLE Skills (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	name string,
+	base_power integer,
+	type string
+);
+
+CREATE TABLE Characters (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	class_id integer,
+	nickname string,
+	exp integer,
+	health string,
+	mana string,
+	power string,
+	skill_slot1 integer,
+	skill_slot2 integer,
+	skill_slot3 integer,
+	consumable_slot1 integer,
+	consumable_slot2 integer,
+	consumable_slot3 integer,
+	equipment_slot1 integer,
+	equipment_slot2 integer,
+	equipment_slot3 integer
+);
+
+CREATE TABLE Users_Characters (
+	user_id integer,
+	uniquechar_id integer
+);
+
+CREATE TABLE Classes (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	name string,
+	skill_slot1 integer,
+	skill_slot2 integer,
+	skill_slot3 integer,
+	mana integer,
+	health integer,
+	power integer
+);
+
+CREATE TABLE Consumables (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	name string,
+	description string,
+	effect string
+);
+
+CREATE TABLE Users_Consumables (
+	user_id integer,
+	consumable_id integer,
+	quantity integer
+);
+
+CREATE TABLE Users_Equipment (
+	user_id integer,
+	equipment_id integer,
+	quantity integer
+);
+
+CREATE TABLE Equipment (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	name string,
+	type string,
+	description string,
+	level integer,
+	quality integer,
+	stat integer
+);
