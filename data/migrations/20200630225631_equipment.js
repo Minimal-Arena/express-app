@@ -11,11 +11,11 @@ exports.up = function (knex) {
       //     description string,
       tbl.string("description").nullable();
       //     level integer,
-      tbl.integer("level").notNullable().defaultTo(0);
+      tbl.integer("level").defaultTo(1);
       //     quality integer,
-      tbl.integer("quality").notNullable().defaultTo(1);
+      tbl.integer("quality").defaultTo(1);
       //     base_stat integer
-      tbl.integer("base_stat").notNullable().defaultTo(1);
+      tbl.integer("base_stat").defaultTo(1);
     })
   );
 };

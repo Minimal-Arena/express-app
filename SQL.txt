@@ -12,10 +12,10 @@ CREATE TABLE Skills (
 	type string
 );
 
-CREATE TABLE UniqueCharacters (
+CREATE TABLE Characters (
 	id integer PRIMARY KEY AUTOINCREMENT,
+	class_id integer,
 	nickname string,
-	class_name string,
 	exp integer,
 	health string,
 	mana string,
@@ -56,12 +56,14 @@ CREATE TABLE Consumables (
 
 CREATE TABLE Users_Consumables (
 	user_id integer,
-	consumable_id integer
+	consumable_id integer,
+	quantity integer
 );
 
 CREATE TABLE Users_Equipment (
 	user_id integer,
-	equipment_id integer
+	equipment_id integer,
+	quantity integer
 );
 
 CREATE TABLE Equipment (

@@ -3,17 +3,17 @@ exports.seed = function (knex) {
     {
       name: "Fireball",
       base_power: 100,
-      type: "magic"
+      type: "magic",
     },
     {
-        name: "Dagger Slash",
-        base_power: 70,
-        type: "physical"
+      name: "Dagger Slash",
+      base_power: 70,
+      type: "physical",
     },
     {
-        name: "Spiritual Healing",
-        base_power: 100,
-        type: "magic"
-    }
+      name: "Spiritual Healing",
+      base_power: 100,
+      type: "magic",
+    },
   ]);
 };
