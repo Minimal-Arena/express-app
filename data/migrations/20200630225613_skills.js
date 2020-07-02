@@ -3,13 +3,17 @@ exports.up = function (knex) {
     // CREATE TABLE Skills
     knex.schema.createTable("skills", (tbl) => {
       //     id integer PRIMARY KEY AUTOINCREMENT,
-      tbl.increments();
+      tbl.increments();      
       //     name string,
       tbl.string("name").notNullable().unique();
-      //     base_power int,
-      tbl.integer("base_power").notNullable();
-      //     type string
+      //     type string,
       tbl.string("type").notNullable();
+      //     description string,
+      tbl.string("description").nullable();
+      //     base_power integer,
+      tbl.integer("base_power").notNullable();	
+      //     cost integer
+      tbl.integer("cost").notNullable();
     })
   );
 };
