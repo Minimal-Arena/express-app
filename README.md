@@ -213,7 +213,7 @@ Will return:
 }
 ```
 ## Characters
-**GET** `/api/game/character`
+Authorization Required: **GET** `/api/game/character`
 ```
 [
     {
@@ -285,7 +285,7 @@ Will return:
 ]
 ```
 
-**GET** `/api/game/character/:id`
+Authorization Required: **GET** `/api/game/character/:id`
 ```
 {
     "id": 1,
@@ -322,7 +322,7 @@ Will return:
 }
 ```
 
-**GET** `/api/game/character/user/:id`
+Authorization Required: **GET** `/api/game/character/user/:id`
 ```
 [
     {

@@ -12,7 +12,7 @@ const skillRouter = require('./routes/game/skill/skillRouter');
 const characterRouter = require('./routes/game/character/characterRouter');
 
 // Middleware Imports
-
+const authenticate = require('./middleware/auth-middleware');
 
 const server = express();
 
@@ -24,7 +24,7 @@ server.use(express.json());
 server.use('/api/auth', authRouter);
 server.use('/api/game/class', classRouter);
 server.use('/api/game/skill', skillRouter);
-server.use('/api/game/character', characterRouter);
+server.use('/api/game/character', authenticate, characterRouter);
 
 // Alive messages
 server.get('/', (req, res) => {
