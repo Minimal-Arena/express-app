@@ -14,8 +14,8 @@ exports.up = function (knex) {
         .onDelete("CASCADE");
       //     nickname string,
       tbl.string("nickname").nullable();
-      //     exp integer,
-      tbl.integer("exp").default(0);
+      //     exp bigint,
+      tbl.bigint("exp").default(0);
       //     health integer,
       tbl.integer("health").default(0);
       //     mana integer,

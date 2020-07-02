@@ -1,15 +1,14 @@
 const db = require("../../data/dbConfig");
 
 module.exports = {
-    getClasses,
-    getClassById
+  getClasses,
+  getClassById,
 };
 
 function getClasses() {
-  return db("classes")
+  return db("classes");
 }
 
 function getClassById(id) {
-    return db("classes").where({ id }).first();
+  return db("classes").where({ id }).first();
 }
-  
