@@ -25,7 +25,7 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      database: process.env.DATABASE_URL,
+      database: process.env.HEROKU_POSTGRESQL_TEAL_URL,
     },
     useNullAsDefault: false,
     ssl: false,
