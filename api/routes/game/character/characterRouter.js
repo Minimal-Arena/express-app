@@ -5,8 +5,13 @@ const details = require("../../../utils/characterDetails");
 
 router.get("/", (req, res) => {
   Characters.getCharacters()
-    .then((list) => {
-      res.status(200).json(list);
+    .then(async (list) => {
+      let array = [];
+      for await (i of list) {
+        const newObj = await details(i, "class");
+        array.push(newObj);
+      }
+      res.status(200).json(array);
     })
     .catch((err) => {
       res.status(500).json({
@@ -25,6 +30,24 @@ router.get("/:id", (req, res) => {
     .catch((err) => {
       res.status(500).json({
         error: `There was an error getting character by ID: ${err.message}`,
+      });
+    });
+});
+
+router.get("/user/:id", (req, res) => {
+  const { id } = req.params;
+  Characters.getCharactersByUserId(id)
+    .then(async (list) => {
+      let array = [];
+      for await (i of list) {
+        const newObj = await details(i, "class");
+        array.push(newObj);
+      }
+      res.status(200).json(array);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: `There was an error getting characters by user's ID: ${err.message}`,
       });
     });
 });

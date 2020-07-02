@@ -2,7 +2,7 @@ const db = require("../../data/dbConfig");
 
 module.exports = {
   getCharacters,
-  getCharactersByUser,
+  getCharactersByUserId,
   getCharacterById,
 };
 
@@ -14,6 +14,9 @@ function getCharacterById(id) {
   return db("characters").where({ id }).first();
 }
 
-function getCharactersByUser(userId) {
-    return "hi"
+function getCharactersByUserId(user_id) {
+  const userChars = db("user_characters as uc")
+    .where({ user_id })
+    .join("characters as c", "uc.character_id", "c.id");
+  return userChars;
 }
