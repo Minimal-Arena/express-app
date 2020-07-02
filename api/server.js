@@ -10,6 +10,7 @@ const authRouter = require('./routes/auth/authRouter');
 const classRouter = require('./routes/game/classRouter');
 const skillRouter = require('./routes/game/skillRouter');
 const characterRouter = require('./routes/game/characterRouter');
+const consumableRouter = require('./routes/game/consumableRouter');
 
 // Middleware Imports
 const authenticate = require('./middleware/auth-middleware');
@@ -24,6 +25,7 @@ server.use(express.json());
 server.use('/api/auth', authRouter);
 server.use('/api/game/class', classRouter);
 server.use('/api/game/skill', skillRouter);
+server.use('/api/game/consumable', consumableRouter);
 server.use('/api/game/character', authenticate, characterRouter);
 
 // Alive messages
