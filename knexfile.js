@@ -1,4 +1,4 @@
-const dotenv = require('dotenv').config();
+const dotenv = require("dotenv").config();
 
 // Update with your config settings.
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
       port: 5432,
       database: "arena",
       user: process.env.USER,
-      password: process.env.PASSWORD
+      password: process.env.PASSWORD,
     },
     useNullAsDefault: false,
     migrations: {
@@ -17,14 +17,16 @@ module.exports = {
     },
     seeds: { directory: "./data/seeds" },
     pool: {
-      min:2,
-      max:10
+      min: 2,
+      max: 10,
     },
   },
 
   production: {
     client: "pg",
-    connection: process.env.DATABASE_URL,
+    connection: {
+      database: process.env.DATABASE_URL,
+    },
     useNullAsDefault: false,
     ssl: false,
     migrations: {
@@ -40,7 +42,7 @@ module.exports = {
       port: 5432,
       database: "arena",
       user: process.env.USER,
-      password: process.env.PASSWORD
+      password: process.env.PASSWORD,
     },
     useNullAsDefault: false,
     migrations: {
@@ -48,8 +50,8 @@ module.exports = {
     },
     seeds: { directory: "./data/seeds" },
     pool: {
-      min:2,
-      max:10
+      min: 2,
+      max: 10,
     },
   },
 };
