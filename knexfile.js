@@ -25,10 +25,13 @@ module.exports = {
   production: {
     client: "pg",
     connection: {
-      database: process.env.DATABASE_URL,
+      host: process.env.DATABASE_HOST,
+      port: process.env.DATABASE_PORT,
+      database: process.env.DATABASE,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
     },
     useNullAsDefault: false,
-    ssl: false,
     migrations: {
       directory: "./data/migrations",
     },
