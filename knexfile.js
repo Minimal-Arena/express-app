@@ -17,9 +17,6 @@ module.exports = {
     },
     seeds: { directory: "./data/seeds" },
     pool: {
-      // afterCreate: (conn, done) => {
-      //   conn.run("PRAGMA foregin_keys = ON", done);
-      // },
       min:2,
       max:10
     },
@@ -29,6 +26,7 @@ module.exports = {
     client: "pg",
     connection: process.env.DATABASE_URL,
     useNullAsDefault: false,
+    ssl: false,
     migrations: {
       directory: "./data/migrations",
     },
@@ -50,9 +48,6 @@ module.exports = {
     },
     seeds: { directory: "./data/seeds" },
     pool: {
-      // afterCreate: (conn, done) => {
-      //   conn.run("PRAGMA foregin_keys = ON", done);
-      // },
       min:2,
       max:10
     },
