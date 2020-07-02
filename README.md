@@ -20,6 +20,8 @@ MINIMAL ARENA server is alive
 - [Game](#game)
     - [Classes](#classes) (GET)
     - [Skills](#skills) (GET)
+    - [Consumables](#consumables) (GET)
+    - [Equipment](#equipment) (GET)
     - [Characters](#characters) (GET)
 - [DB Schema](#database-schema)
 
@@ -207,6 +209,72 @@ Will return:
     "cost": 100
 }
 ```
+
+## Consumables
+**GET** `/api/game/consumable`
+```
+[
+    {
+        "id": 1,
+        "name": "Bread",
+        "description": "Recovers 50 health",
+        "effect": "+50"
+    },
+    {
+        "id": 2,
+        "name": "Rotten Fish",
+        "description": "Makes the user sick.",
+        "effect": "-20"
+    }
+]
+```
+**GET** `/api/game/consumable/:id`
+```
+{
+    "id": 1,
+    "name": "Bread",
+    "description": "Recovers 50 health",
+    "effect": "+50"
+}
+```
+
+## Equipment
+**GET** `/api/game/consumable`
+```
+[
+    {
+        "id": 1,
+        "name": "Sword",
+        "type": "melee",
+        "description": "The standard starter weapon",
+        "level": 0,
+        "quality": 1,
+        "base_stat": 1
+    },
+    {
+        "id": 2,
+        "name": "Shield",
+        "type": "defense",
+        "description": "Ye ol' boring shield",
+        "level": 1,
+        "quality": 1,
+        "base_stat": 1
+    }
+]
+```
+**GET** `/api/game/consumable/:id`
+```
+{
+    "id": 1,
+    "name": "Sword",
+    "type": "melee",
+    "description": "The standard starter weapon",
+    "level": 0,
+    "quality": 1,
+    "base_stat": 1
+}
+```
+
 ## Characters
 Authorization Required: **GET** `/api/game/character`
 ```
