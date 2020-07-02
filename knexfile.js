@@ -28,18 +28,11 @@ module.exports = {
   production: {
     client: "pg",
     connection: process.env.DATABASE_URL,
-    useNullAsDefault: true,
+    useNullAsDefault: false,
     migrations: {
       directory: "./data/migrations",
     },
     seeds: { directory: "./data/seeds" },
-    pool: {
-      // afterCreate: (conn, done) => {
-      //   conn.run("PRAGMA foregin_keys = ON", done);
-      // },
-      min:2,
-      max:10
-    },
   },
 
   test: {
@@ -51,7 +44,7 @@ module.exports = {
       user: process.env.USER,
       password: process.env.PASSWORD
     },
-    useNullAsDefault: true,
+    useNullAsDefault: false,
     migrations: {
       directory: "./data/migrations",
     },
