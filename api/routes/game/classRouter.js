@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const Classes = require("../../../models/classModel");
-const details = require("../../../utils/characterDetails");
+const Classes = require("../../models/classModel");
+const details = require("../../utils/characterDetails");
 
 router.get("/", (req, res) => {
   Classes.getClasses()

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const Skills = require("../../../models/skillModel");
+const Skills = require("../../models/skillModel");
 
 router.get("/", (req, res) => {
   Skills.getSkills()

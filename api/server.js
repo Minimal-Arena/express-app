@@ -7,9 +7,9 @@ require('dotenv').config();
 
 // Routes Imports
 const authRouter = require('./routes/auth/authRouter');
-const classRouter = require('./routes/game/class/classRouter');
-const skillRouter = require('./routes/game/skill/skillRouter');
-const characterRouter = require('./routes/game/character/characterRouter');
+const classRouter = require('./routes/game/classRouter');
+const skillRouter = require('./routes/game/skillRouter');
+const characterRouter = require('./routes/game/characterRouter');
 
 // Middleware Imports
 const authenticate = require('./middleware/auth-middleware');

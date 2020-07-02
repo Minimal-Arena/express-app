@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const Characters = require("../../../models/characterModel");
-const details = require("../../../utils/characterDetails");
+const Characters = require("../../models/characterModel");
+const details = require("../../utils/characterDetails");
 
 router.get("/", (req, res) => {
   Characters.getCharacters()
