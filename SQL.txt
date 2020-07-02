@@ -8,8 +8,10 @@ CREATE TABLE Users (
 CREATE TABLE Skills (
 	id integer PRIMARY KEY AUTOINCREMENT,
 	name string,
-	base_power integer,
-	type string
+	type string,
+	description string,
+	base_power integer,	
+	cost integer
 );
 
 CREATE TABLE Characters (

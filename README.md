@@ -99,82 +99,69 @@ Will return:
 [
     {
         "id": 1,
-        "name": "Archer",
+        "name": "Wizard",
         "skill_slot1": {
             "id": 1,
             "name": "Fireball",
+            "type": "magic",
+            "description": "A firey ball",
             "base_power": 100,
-            "type": "magic"
+            "cost": 50
         },
         "skill_slot2": {
             "id": 2,
-            "name": "Dagger Slash",
-            "base_power": 70,
-            "type": "physical"
+            "name": "Lightning",
+            "type": "magic",
+            "description": "A bolty bolt",
+            "base_power": 150,
+            "cost": 100
         },
         "skill_slot3": {
             "id": 3,
-            "name": "Spiritual Healing",
-            "base_power": 100,
-            "type": "magic"
+            "name": "Healing",
+            "type": "magic",
+            "description": null,
+            "base_power": 20,
+            "cost": 100
         },
-        "mana": 70,
-        "health": 80,
-        "power": 100
+        "mana": 250,
+        "health": 150,
+        "power": 50
     },
-    {
-        "id": 2,
-        "name": "Warewolf",
-        "skill_slot1": {
-            "id": 3,
-            "name": "Spiritual Healing",
-            "base_power": 100,
-            "type": "magic"
-        },
-        "skill_slot2": {
-            "id": 1,
-            "name": "Fireball",
-            "base_power": 100,
-            "type": "magic"
-        },
-        "skill_slot3": {
-            "id": 2,
-            "name": "Dagger Slash",
-            "base_power": 70,
-            "type": "physical"
-        },
-        "mana": 40,
-        "health": 130,
-        "power": 180
-    }
 ]
 ```
 **GET** `/api/game/class/:id`
 ```
 {
     "id": 1,
-    "name": "Archer",
+    "name": "Wizard",
     "skill_slot1": {
         "id": 1,
         "name": "Fireball",
+        "type": "magic",
+        "description": "A firey ball",
         "base_power": 100,
-        "type": "magic"
+        "cost": 50
     },
     "skill_slot2": {
         "id": 2,
-        "name": "Dagger Slash",
-        "base_power": 70,
-        "type": "physical"
+        "name": "Lightning",
+        "type": "magic",
+        "description": "A bolty bolt",
+        "base_power": 150,
+        "cost": 100
     },
     "skill_slot3": {
         "id": 3,
-        "name": "Spiritual Healing",
-        "base_power": 100,
-        "type": "magic"
+        "name": "Healing",
+        "type": "magic",
+        "description": null,
+        "base_power": 20,
+        "cost": 100
     },
-    "mana": 70,
-    "health": 80,
-    "power": 100
+    "mana": 250,
+    "health": 150,
+    "power": 50
 }
 ```
 
@@ -185,31 +172,39 @@ Will return:
     {
         "id": 1,
         "name": "Fireball",
+        "type": "magic",
+        "description": "A firey ball",
         "base_power": 100,
-        "type": "magic"
+        "cost": 50
     },
     {
         "id": 2,
-        "name": "Dagger Slash",
-        "base_power": 70,
-        "type": "physical"
+        "name": "Lightning",
+        "type": "magic",
+        "description": "A bolty bolt",
+        "base_power": 150,
+        "cost": 100
     },
     {
         "id": 3,
-        "name": "Spiritual Healing",
-        "base_power": 100,
-        "type": "magic"
-    }
+        "name": "Healing",
+        "type": "magic",
+        "description": null,
+        "base_power": 20,
+        "cost": 100
+    },
 ]
 ```
 
 **GET** `/api/game/skill/:id`
 ```
 {
-    "id": 1,
-    "name": "Fireball",
+    "id": 8,
+    "name": "Poison Strike",
+    "type": "magic",
+    "description": null,
     "base_power": 100,
-    "type": "magic"
+    "cost": 100
 }
 ```
 ## Characters
@@ -218,62 +213,117 @@ Authorization Required: **GET** `/api/game/character`
 [
     {
         "id": 1,
-        "class_id": 1,
+        "class": {
+            "id": 1,
+            "name": "Wizard",
+            "base_health": 150,
+            "base_mana": 250,
+            "base_power": 50
+        },
         "nickname": "Jeff's Archer",
         "exp": "1000",
-        "health": 80,
-        "mana": 70,
-        "power": 100,
+        "health": 230,
+        "mana": 320,
+        "power": 150,
         "skill_slot1": {
             "id": 1,
             "name": "Fireball",
+            "type": "magic",
+            "description": "A firey ball",
             "base_power": 100,
-            "type": "magic"
+            "cost": 50
         },
         "skill_slot2": {
             "id": 2,
-            "name": "Dagger Slash",
-            "base_power": 70,
-            "type": "physical"
+            "name": "Lightning",
+            "type": "magic",
+            "description": "A bolty bolt",
+            "base_power": 150,
+            "cost": 100
         },
         "skill_slot3": {
             "id": 3,
-            "name": "Spiritual Healing",
-            "base_power": 100,
-            "type": "magic"
+            "name": "Healing",
+            "type": "magic",
+            "description": null,
+            "base_power": 20,
+            "cost": 100
         },
-        "consumable_slot1": 1,
-        "consumable_slot2": 2,
-        "consumable_slot3": 1,
-        "equipment_slot1": 1,
-        "equipment_slot2": 2,
+        "consumable_slot1": {
+            "id": 1,
+            "name": "Bread",
+            "description": "Recovers 50 health",
+            "effect": "+50"
+        },
+        "consumable_slot2": {
+            "id": 2,
+            "name": "Rotten Fish",
+            "description": "Makes the user sick.",
+            "effect": "-20"
+        },
+        "consumable_slot3": {
+            "id": 1,
+            "name": "Bread",
+            "description": "Recovers 50 health",
+            "effect": "+50"
+        },
+        "equipment_slot1": {
+            "id": 1,
+            "name": "Sword",
+            "type": "melee",
+            "description": "The standard starter weapon",
+            "level": 0,
+            "quality": 1,
+            "base_stat": 1
+        },
+        "equipment_slot2": {
+            "id": 2,
+            "name": "Shield",
+            "type": "defense",
+            "description": "Ye ol' boring shield",
+            "level": 1,
+            "quality": 1,
+            "base_stat": 1
+        },
         "equipment_slot3": null
     },
     {
         "id": 2,
-        "class_id": 2,
+        "class": {
+            "id": 2,
+            "name": "Brute",
+            "base_health": 250,
+            "base_mana": 50,
+            "base_power": 250
+        },
         "nickname": null,
         "exp": "0",
-        "health": 0,
-        "mana": 0,
-        "power": 0,
+        "health": 250,
+        "mana": 50,
+        "power": 250,
         "skill_slot1": {
             "id": 3,
-            "name": "Spiritual Healing",
-            "base_power": 100,
-            "type": "magic"
+            "name": "Healing",
+            "type": "magic",
+            "description": null,
+            "base_power": 20,
+            "cost": 100
         },
         "skill_slot2": {
             "id": 1,
             "name": "Fireball",
+            "type": "magic",
+            "description": "A firey ball",
             "base_power": 100,
-            "type": "magic"
+            "cost": 50
         },
         "skill_slot3": {
             "id": 2,
-            "name": "Dagger Slash",
-            "base_power": 70,
-            "type": "physical"
+            "name": "Lightning",
+            "type": "magic",
+            "description": "A bolty bolt",
+            "base_power": 150,
+            "cost": 100
         },
         "consumable_slot1": null,
         "consumable_slot2": null,
@@ -281,7 +331,6 @@ Authorization Required: **GET** `/api/game/character`
         "equipment_slot1": null,
         "equipment_slot2": null,
         "equipment_slot3": null
-    }
 ]
 ```
 
@@ -289,35 +338,78 @@ Authorization Required: **GET** `/api/game/character/:id`
 ```
 {
     "id": 1,
-    "class_id": 1,
+    "class": {
+        "id": 1,
+        "name": "Wizard",
+        "base_health": 150,
+        "base_mana": 250,
+        "base_power": 50
+    },
     "nickname": "Jeff's Archer",
     "exp": "1000",
-    "health": 80,
-    "mana": 70,
-    "power": 100,
+    "health": 230,
+    "mana": 320,
+    "power": 150,
     "skill_slot1": {
         "id": 1,
         "name": "Fireball",
+        "type": "magic",
+        "description": "A firey ball",
         "base_power": 100,
-        "type": "magic"
+        "cost": 50
     },
     "skill_slot2": {
         "id": 2,
-        "name": "Dagger Slash",
-        "base_power": 70,
-        "type": "physical"
+        "name": "Lightning",
+        "type": "magic",
+        "description": "A bolty bolt",
+        "base_power": 150,
+        "cost": 100
     },
     "skill_slot3": {
         "id": 3,
-        "name": "Spiritual Healing",
-        "base_power": 100,
-        "type": "magic"
+        "name": "Healing",
+        "type": "magic",
+        "description": null,
+        "base_power": 20,
+        "cost": 100
     },
-    "consumable_slot1": 1,
-    "consumable_slot2": 2,
-    "consumable_slot3": 1,
-    "equipment_slot1": 1,
-    "equipment_slot2": 2,
+    "consumable_slot1": {
+        "id": 1,
+        "name": "Bread",
+        "description": "Recovers 50 health",
+        "effect": "+50"
+    },
+    "consumable_slot2": {
+        "id": 2,
+        "name": "Rotten Fish",
+        "description": "Makes the user sick.",
+        "effect": "-20"
+    },
+    "consumable_slot3": {
+        "id": 1,
+        "name": "Bread",
+        "description": "Recovers 50 health",
+        "effect": "+50"
+    },
+    "equipment_slot1": {
+        "id": 1,
+        "name": "Sword",
+        "type": "melee",
+        "description": "The standard starter weapon",
+        "level": 0,
+        "quality": 1,
+        "base_stat": 1
+    },
+    "equipment_slot2": {
+        "id": 2,
+        "name": "Shield",
+        "type": "defense",
+        "description": "Ye ol' boring shield",
+        "level": 1,
+        "quality": 1,
+        "base_stat": 1
+    },
     "equipment_slot3": null
 }
 ```
@@ -329,72 +421,80 @@ Authorization Required: **GET** `/api/game/character/user/:id`
         "user_id": 1,
         "character_id": 1,
         "id": 1,
-        "class_id": 1,
+        "class": {
+            "id": 1,
+            "name": "Wizard",
+            "base_health": 150,
+            "base_mana": 250,
+            "base_power": 50
+        },
         "nickname": "Jeff's Archer",
         "exp": "1000",
-        "health": 80,
-        "mana": 70,
-        "power": 100,
+        "health": 230,
+        "mana": 320,
+        "power": 150,
         "skill_slot1": {
             "id": 1,
             "name": "Fireball",
+            "type": "magic",
+            "description": "A firey ball",
             "base_power": 100,
-            "type": "magic"
+            "cost": 50
         },
         "skill_slot2": {
             "id": 2,
-            "name": "Dagger Slash",
-            "base_power": 70,
-            "type": "physical"
+            "name": "Lightning",
+            "type": "magic",
+            "description": "A bolty bolt",
+            "base_power": 150,
+            "cost": 100
         },
         "skill_slot3": {
             "id": 3,
-            "name": "Spiritual Healing",
-            "base_power": 100,
-            "type": "magic"
+            "name": "Healing",
+            "type": "magic",
+            "description": null,
+            "base_power": 20,
+            "cost": 100
         },
-        "consumable_slot1": 1,
-        "consumable_slot2": 2,
-        "consumable_slot3": 1,
-        "equipment_slot1": 1,
-        "equipment_slot2": 2,
+        "consumable_slot1": {
+            "id": 1,
+            "name": "Bread",
+            "description": "Recovers 50 health",
+            "effect": "+50"
+        },
+        "consumable_slot2": {
+            "id": 2,
+            "name": "Rotten Fish",
+            "description": "Makes the user sick.",
+            "effect": "-20"
+        },
+        "consumable_slot3": {
+            "id": 1,
+            "name": "Bread",
+            "description": "Recovers 50 health",
+            "effect": "+50"
+        },
+        "equipment_slot1": {
+            "id": 1,
+            "name": "Sword",
+            "type": "melee",
+            "description": "The standard starter weapon",
+            "level": 0,
+            "quality": 1,
+            "base_stat": 1
+        },
+        "equipment_slot2": {
+            "id": 2,
+            "name": "Shield",
+            "type": "defense",
+            "description": "Ye ol' boring shield",
+            "level": 1,
+            "quality": 1,
+            "base_stat": 1
+        },
         "equipment_slot3": null
     },
-    {
-        "user_id": 1,
-        "character_id": 2,
-        "id": 2,
-        "class_id": 2,
-        "nickname": null,
-        "exp": "0",
-        "health": 0,
-        "mana": 0,
-        "power": 0,
-        "skill_slot1": {
-            "id": 3,
-            "name": "Spiritual Healing",
-            "base_power": 100,
-            "type": "magic"
-        },
-        "skill_slot2": {
-            "id": 1,
-            "name": "Fireball",
-            "base_power": 100,
-            "type": "magic"
-        },
-        "skill_slot3": {
-            "id": 2,
-            "name": "Dagger Slash",
-            "base_power": 70,
-            "type": "physical"
-        },
-        "consumable_slot1": null,
-        "consumable_slot2": null,
-        "consumable_slot3": null,
-        "equipment_slot1": null,
-        "equipment_slot2": null,
-        "equipment_slot3": null
-    }
 ]
 ```
 

@@ -1,14 +1,14 @@
 const router = require("express").Router();
 
-const Characters = require("../../../models/characterModel");
-const details = require("../../../utils/characterDetails");
+const Characters = require("../../models/characterModel");
+const details = require("../../utils/characterDetails");
 
 router.get("/", (req, res) => {
   Characters.getCharacters()
     .then(async (list) => {
       let array = [];
       for await (i of list) {
-        const newObj = await details(i, "class");
+        const newObj = await details(i, "character");
         array.push(newObj);
       }
       res.status(200).json(array);
@@ -40,7 +40,7 @@ router.get("/user/:id", (req, res) => {
     .then(async (list) => {
       let array = [];
       for await (i of list) {
-        const newObj = await details(i, "class");
+        const newObj = await details(i, "character");
         array.push(newObj);
       }
       res.status(200).json(array);

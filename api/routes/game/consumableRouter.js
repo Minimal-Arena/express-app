@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
-const Skills = require("../../../models/skillModel");
+const Consumables = require("../../models/consumableModel");
 
 router.get("/", (req, res) => {
-  Skills.getSkills()
+  Consumables.getConsumables()
     .then((list) => {
       res.status(200).json(list);
     })
@@ -16,9 +16,9 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;
-  Skills.getSkillById(id)
-    .then((skill) => {
-      res.status(200).json(skill);
+  Consumables.getConsumableById(id)
+    .then((consumable) => {
+      res.status(200).json(consumable);
     })
     .catch((err) => {
       res
