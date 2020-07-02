@@ -6,7 +6,7 @@ exports.up = function (knex) {
       tbl.increments();
       //     class_id integer,
       tbl
-        .integer("class_id")
+        .integer("class")
         .notNullable()
         .references("id")
         .inTable("classes")
