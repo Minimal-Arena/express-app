@@ -38,26 +38,27 @@ async function characterWithDetails(object, type) {
       });
     });
 
-  // use skills array objects to replace the 'id' on the class object
-  const classObj = {
-    ...object,
-    skill_slot1: skills[0],
-    skill_slot2: skills[1],
-    skill_slot3: skills[2],
-  };
-
-  // use skills, equpiment, and consumables array objects to replace
-  // 'id' on character objects
-  const characterObj = {
-    ...object,
-    skill_slot1: skills[0],
-    skill_slot2: skills[1],
-    skill_slot3: skills[2],
-  };
-
   if (type === "class") {
+    // use skills array objects to replace the 'id' on the class object
+    const classObj = {
+      ...object,
+      skill_slot1: skills[0],
+      skill_slot2: skills[1],
+      skill_slot3: skills[2],
+    };
+
     return classObj;
+    
   } else if (type === "character") {
+    // use skills, equpiment, and consumables array objects to replace
+    // 'id' on character objects
+    const characterObj = {
+      ...object,
+      skill_slot1: skills[0],
+      skill_slot2: skills[1],
+      skill_slot3: skills[2],
+    };
+
     return characterObj;
   }
 }

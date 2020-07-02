@@ -1,22 +1,31 @@
 exports.seed = function (knex) {
   return knex("classes").insert([
     {
-      name: "Archer",
+      name: "Wizard",
       skill_slot1: 1,
       skill_slot2: 2,
       skill_slot3: 3,
-      mana: 70,
-      health: 80,
-      power: 100,
+      mana: 250,
+      health: 150,
+      power: 50,
     },
     {
-      name: "Warewolf",
-      skill_slot1: 3,
-      skill_slot2: 1,
-      skill_slot3: 2,
-      mana: 40,
-      health: 130,
-      power: 180,
+      name: "Brute",
+      skill_slot1: 4,
+      skill_slot2: 5,
+      skill_slot3: 6,
+      mana: 50,
+      health: 250,
+      power: 250,
+    },
+    {
+      name: "Rogue",
+      skill_slot1: 7,
+      skill_slot2: 8,
+      skill_slot3: 9,
+      mana: 100,
+      health: 150,
+      power: 150,
     },
   ]);
 };
