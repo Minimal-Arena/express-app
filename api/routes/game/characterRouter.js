@@ -40,7 +40,7 @@ router.get("/user/:id", (req, res) => {
     .then(async (list) => {
       let array = [];
       for await (i of list) {
-        const newObj = await details(i, "class");
+        const newObj = await details(i, "character");
         array.push(newObj);
       }
       res.status(200).json(array);
