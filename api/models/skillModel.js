@@ -1,12 +1,12 @@
 const db = require("../../data/dbConfig");
 
 module.exports = {
-    getSkills,
+  getSkills,
   getSkillById,
 };
 
 function getSkills() {
-    return db("skills")
+  return db("skills");
 }
 
 function getSkillById(id) {
