@@ -10,6 +10,7 @@ module.exports = {
 function addUser(user) {
   return db("users")
     .insert(user)
+    .returning('id')
     .then((ids) => {
       const [id] = ids;
       return findUserById(id);

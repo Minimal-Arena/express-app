@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+const Classes = require("../../models/classModel");
 const Characters = require("../../models/characterModel");
 const details = require("../../utils/characterDetails");
 
@@ -50,6 +51,40 @@ router.get("/user/:id", (req, res) => {
         error: `There was an error getting characters by user's ID: ${err.message}`,
       });
     });
+});
+
+router.post("/", async (req, res) => {
+  const { user_id, class_id } = req.body;
+  // validate that needed info are included
+  if (!user_id || !class_id) {
+    res
+      .status(400)
+      .json({
+        error: "Must include user_id and class_id to create a character",
+      });
+  } else {
+    // get class info to post onto new character
+    const getClassObj = await Classes.getClassById(class_id);
+    // format object needed by insert function
+    const classObj = {
+      class: class_id,
+      nickname: req.body.nickname ? req.body.nickname : getClassObj.name,
+      skill_slot1: getClassObj.skill_slot1,
+      skill_slot2: getClassObj.skill_slot2,
+      skill_slot3: getClassObj.skill_slot3,
+    };
+
+    Characters.createCharacter(classObj, user_id)
+      .then( async (item) => {
+        const newChar = await details(item, "character")
+        res.status(201).json(newChar)
+      })
+      .catch((err) => {
+        res.status(500).json({
+          error: `There was an error creating the character: ${err}`,
+        });
+      });
+  }
 });
 
 module.exports = router;
