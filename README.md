@@ -22,7 +22,7 @@ MINIMAL ARENA server is alive
     - [Skills](#skills) (GET)
     - [Consumables](#consumables) (GET)
     - [Equipment](#equipment) (GET)
-    - [Characters](#characters) (GET)
+    - [Characters](#characters) (GET/POST)
 - [DB Schema](#database-schema)
 
 ## Install
@@ -565,6 +565,66 @@ Authorization Required: **GET** `/api/game/character/user/:id`
     },
 ]
 ```
+
+Authorization Required: **POST** `/api/game/character/`</br>
+Requires:
+```
+{
+    user_id: int,
+    class_id: int,
+    nickname: string/null
+}
+```
+Returns newly created character on success:
+```
+{
+    "id": 1,
+    "class": {
+        "id": 3,
+        "name": "Rogue",
+        "base_health": 150,
+        "base_mana": 100,
+        "base_power": 150
+    },
+    "nickname": "Nickname Man",
+    "exp": "0",
+    "health": 150,
+    "mana": 100,
+    "power": 150,
+    "skill_slot1": {
+        "id": 7,
+        "name": "Dagger Slash",
+        "type": "physical",
+        "description": "A slashing attack with a pokey weapon",
+        "base_power": 50,
+        "cost": 50
+    },
+    "skill_slot2": {
+        "id": 8,
+        "name": "Poison Strike",
+        "type": "magic",
+        "description": null,
+        "base_power": 100,
+        "cost": 100
+    },
+    "skill_slot3": {
+        "id": 9,
+        "name": "Invisibility",
+        "type": "magic",
+        "description": "─=Σ( ◣_◢)",
+        "base_power": 50,
+        "cost": 100
+    },
+    "consumable_slot1": null,
+    "consumable_slot2": null,
+    "consumable_slot3": null,
+    "equipment_slot1": null,
+    "equipment_slot2": null,
+    "equipment_slot3": null
+}
+```
+
+
 
 
 ### Database Schema

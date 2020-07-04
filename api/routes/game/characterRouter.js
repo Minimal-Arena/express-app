@@ -69,6 +69,9 @@ router.post("/", async (req, res) => {
     const classObj = {
       class: class_id,
       nickname: req.body.nickname ? req.body.nickname : getClassObj.name,
+      // health: req.body.health? req.body.health : null,
+      // mana: req.body.mana? req.body.mana : null,
+      // power: req.body.power? req.body.power : null,
       skill_slot1: getClassObj.skill_slot1,
       skill_slot2: getClassObj.skill_slot2,
       skill_slot3: getClassObj.skill_slot3,
