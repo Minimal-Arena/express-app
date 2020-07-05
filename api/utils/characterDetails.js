@@ -42,6 +42,7 @@ async function characterWithDetails(object, type) {
           base_mana: classObj.mana,
           base_power: classObj.power
       },
+      exp: Number(detailedObj.exp),
       health: classObj.health + object.health,
       mana: classObj.mana + object.mana,
       power: classObj.power + object.power,
