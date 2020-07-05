@@ -1,32 +1,65 @@
+const dotenv = require("dotenv").config();
+
 // Update with your config settings.
 module.exports = {
   development: {
-    client: "sqlite3",
-    connection: { filename: './data/arena.db3' },
-    useNullAsDefault: true,
+    client: "pg",
+    connection: {
+      host: "localhost",
+      port: 5432,
+      database: "arena",
+      user: process.env.USER,
+      password: process.env.PASSWORD,
+    },
+    useNullAsDefault: false,
     migrations: {
       directory: "./data/migrations",
     },
     seeds: { directory: "./data/seeds" },
     pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foregin_keys = ON", done);
-      },
+      min: 2,
+      max: 10,
+    },
+  },
+
+  production: {
+    client: "pg",
+    connection: process.env.DATABASE_URL,
+    // {
+    //   host: process.env.DATABASE_HOST,
+    //   port: process.env.DATABASE_PORT,
+    //   database: process.env.DATABASE,
+    //   user: process.env.DATABASE_USER,
+    //   password: process.env.DATABASE_PASSWORD,
+    // },
+    useNullAsDefault: false,
+    migrations: {
+      directory: "./data/migrations",
+    },
+    seeds: { directory: "./data/seeds" },
+    pool: {
+      min: 2,
+      max: 10,
     },
   },
 
   test: {
-    client: "sqlite3",
-    connection: { filename: "./data/test.db3" },
-    useNullAsDefault: true,
+    client: "pg",
+    connection: {
+      host: "localhost",
+      port: 5432,
+      database: "arena",
+      user: process.env.USER,
+      password: process.env.PASSWORD,
+    },
+    useNullAsDefault: false,
     migrations: {
       directory: "./data/migrations",
     },
     seeds: { directory: "./data/seeds" },
     pool: {
-      afterCreate: (conn, done) => {
-        conn.run("PRAGMA foregin_keys = ON", done);
-      },
+      min: 2,
+      max: 10,
     },
   },
 };

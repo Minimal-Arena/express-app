@@ -1,7 +1,7 @@
 exports.seed = function (knex) {
   return knex("characters").insert([
     {
-      class_id: 1,
+      class: 1,
       nickname: "Jeff's Archer",
       exp: 1000,
       mana: 70,
@@ -17,7 +17,7 @@ exports.seed = function (knex) {
       equipment_slot2: 2
     },
     {
-      class_id: 2,
+      class: 2,
       skill_slot1: 3,
       skill_slot2: 1,
       skill_slot3: 2,
