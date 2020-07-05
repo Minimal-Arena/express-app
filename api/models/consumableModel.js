@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function getConsumables() {
-  return db("consumables");
+  return db("consumables").orderBy("id", "asc");
 }
 
 function getConsumableById(id) {

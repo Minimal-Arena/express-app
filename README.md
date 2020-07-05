@@ -22,7 +22,11 @@ MINIMAL ARENA server is alive
     - [Skills](#skills) (GET)
     - [Consumables](#consumables) (GET)
     - [Equipment](#equipment) (GET)
-    - [Characters](#characters) (GET)
+    - [Characters](#characters) (GET/POST/PUT/DELETE)
+        - [GET](#characters)
+        - [POST](#characters-post)
+        - [PUT](#characters-put)
+        - [DELETE](#characters-delete)
 - [DB Schema](#database-schema)
 
 ## Install
@@ -565,6 +569,91 @@ Authorization Required: **GET** `/api/game/character/user/:id`
     },
 ]
 ```
+#### Characters Post
+Authorization Required: **POST** `/api/game/character/`</br>
+Requires:
+```
+{
+    user_id: int,
+    class_id: int,
+    nickname: string/null
+}
+```
+Returns newly created character on success:
+```
+{
+    "id": 1,
+    "class": {
+        "id": 3,
+        "name": "Rogue",
+        "base_health": 150,
+        "base_mana": 100,
+        "base_power": 150
+    },
+    "nickname": "Nickname Man",
+    "exp": "0",
+    "health": 150,
+    "mana": 100,
+    "power": 150,
+    "skill_slot1": {
+        "id": 7,
+        "name": "Dagger Slash",
+        "type": "physical",
+        "description": "A slashing attack with a pokey weapon",
+        "base_power": 50,
+        "cost": 50
+    },
+    "skill_slot2": {
+        "id": 8,
+        "name": "Poison Strike",
+        "type": "magic",
+        "description": null,
+        "base_power": 100,
+        "cost": 100
+    },
+    "skill_slot3": {
+        "id": 9,
+        "name": "Invisibility",
+        "type": "magic",
+        "description": "─=Σ( ◣_◢)",
+        "base_power": 50,
+        "cost": 100
+    },
+    "consumable_slot1": null,
+    "consumable_slot2": null,
+    "consumable_slot3": null,
+    "equipment_slot1": null,
+    "equipment_slot2": null,
+    "equipment_slot3": null
+}
+```
+#### Characters PUT
+Authorization Required: **PUT** `/api/game/character/:id`</br>
+Requires an object with any values to be updated. All fields are optional, but data types must match.
+```
+{
+    class: int (id of new class),
+    nickname: String,
+    exp: int/bigint,
+    health: int,
+    mana: int,
+    power: int,
+    skill_slot1: int (id of new skill),
+    skill_slot2: int (id of new skill),
+    skill_slot3: int (id of new skill),
+    consumable_slot1: int (id of new consumable),
+    consumable_slot2: int (id of new consumable),
+    consumable_slot3: int (id of new consumable),
+    equipment_slot1: int (id of new equipment),
+    equipment_slot2: int (id of new equipment),
+    equipment_slot3: int (id of new equipment),
+}
+```
+Returns a `1` on successful update
+
+#### Characters DELETE
+Authorization Required: **DELETE** `/api/game/character/:id`</br>
+Returns a `1` on successful delete
 
 
 ### Database Schema

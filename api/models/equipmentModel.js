@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function getEquipment() {
-  return db("equipment");
+  return db("equipment").orderBy("id", "asc");
 }
 
 function getEquipmentById(id) {
