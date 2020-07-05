@@ -635,9 +635,15 @@ Requires an object with any values to be updated. All fields are optional, but d
     class: int (id of new class),
     nickname: String,
     exp: int/bigint,
-    health: int,
+    health: int,  
+        //(if any stat changes are made, all 3 (health, mana, power) need to be
+        //  included in the body)
     mana: int,
+        //(if any stat changes are made, all 3 (health, mana, power) need to be
+        //  included in the body)
     power: int,
+        //(if any stat changes are made, all 3 (health, mana, power) need to be
+        //  included in the body)
     skill_slot1: int (id of new skill),
     skill_slot2: int (id of new skill),
     skill_slot3: int (id of new skill),

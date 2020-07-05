@@ -3,7 +3,6 @@ const router = require("express").Router();
 const Classes = require("../../models/classModel");
 const Characters = require("../../models/characterModel");
 const details = require("../../utils/characterDetails");
-const { json } = require("express");
 
 router.get("/", (req, res) => {
   Characters.getCharacters()
@@ -89,22 +88,52 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const values = req.body;
   if (!values) {
     res.status(400).json({ error: "Must include values to be updated" });
   }
+  const { health, mana, power } = values;
+  // stat changes held on the front end are total values (including base value)
+  // for any stats gained coming from the front end, there needs to be a calculation
+  // in order to store it appropriately on the server.
+  // the 'health', 'mana', and 'power' values on the GET request contain a combined
+  // value.
+  if (health || mana || power) {
+    // get the character that we're currently dealing with to find what class it belongs to
+    const getCharacter = await Characters.getCharacterById(id);
+    // get the class so that we can find the base stats
+    const getClassObj = await Classes.getClassById(getCharacter.class);
 
-  Characters.updateCharacter(values, id)
-    .then((i) => {
-      res.status(204).json(i);
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: `There was an error updating the character: ${err.message}`,
+    const calculatedStatChanges = {
+      ...values,
+      health: health - getClassObj.health,
+      mana: mana - getClassObj.mana,
+      power: power - getClassObj.power,
+    };
+
+    Characters.updateCharacter(calculatedStatChanges, id)
+      .then((i) => {
+        res.status(204).json(i);
+      })
+      .catch((err) => {
+        res.status(500).json({
+          error: `There was an error updating the character: ${err.message}`,
+        });
       });
-    });
+  } else {
+    // if stats aren't in the body at all, a simple update/PUT request will suffice
+    Characters.updateCharacter(values, id)
+      .then((i) => {
+        res.status(204).json(i);
+      })
+      .catch((err) => {
+        res.status(500).json({
+          error: `There was an error updating the character: ${err.message}`,
+        });
+      });
+  }
 });
 
 router.delete("/:id", (req, res) => {
