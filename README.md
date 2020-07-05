@@ -22,7 +22,11 @@ MINIMAL ARENA server is alive
     - [Skills](#skills) (GET)
     - [Consumables](#consumables) (GET)
     - [Equipment](#equipment) (GET)
-    - [Characters](#characters) (GET/POST)
+    - [Characters](#characters) (GET/POST/PUT/DELETE)
+        - [GET](#characters)
+        - [POST](#characters-post)
+        - [PUT](#characters-put)
+        - [DELETE](#characters-delete)
 - [DB Schema](#database-schema)
 
 ## Install
@@ -565,7 +569,7 @@ Authorization Required: **GET** `/api/game/character/user/:id`
     },
 ]
 ```
-
+#### Characters Post
 Authorization Required: **POST** `/api/game/character/`</br>
 Requires:
 ```
@@ -623,8 +627,33 @@ Returns newly created character on success:
     "equipment_slot3": null
 }
 ```
+#### Characters PUT
+Authorization Required: **PUT** `/api/game/character/:id`</br>
+Requires an object with any values to be updated. All fields are optional, but data types must match.
+```
+{
+    class: int (id of new class),
+    nickname: String,
+    exp: int/bigint,
+    health: int,
+    mana: int,
+    power: int,
+    skill_slot1: int (id of new skill),
+    skill_slot2: int (id of new skill),
+    skill_slot3: int (id of new skill),
+    consumable_slot1: int (id of new consumable),
+    consumable_slot2: int (id of new consumable),
+    consumable_slot3: int (id of new consumable),
+    equipment_slot1: int (id of new equipment),
+    equipment_slot2: int (id of new equipment),
+    equipment_slot3: int (id of new equipment),
+}
+```
+Returns a `1` on successful update
 
-
+#### Characters DELETE
+Authorization Required: **DELETE** `/api/game/character/:id`</br>
+Returns a `1` on successful delete
 
 
 ### Database Schema
