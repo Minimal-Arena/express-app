@@ -36,6 +36,12 @@ exports.up = function (knex) {
       tbl.integer("health").notNullable();
       //     power integer
       tbl.integer("power").notNullable();
+      //     asset_attack string,
+      tbl.string("asset_attack");
+      //     asset_damaged string,
+      tbl.string("asset_damaged");
+      //     asset_idle string
+      tbl.string("asset_idle");
     })
   );
 };

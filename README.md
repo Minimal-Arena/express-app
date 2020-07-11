@@ -133,6 +133,9 @@ Will return:
         "mana": 250,
         "health": 150,
         "power": 50
+        "asset_attack": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/attack_wyhosn.gif",
+        "asset_damaged": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/damaged_nh0sqr.gif",
+        "asset_idle": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/idle_n54c2q.gif"
     },
 ]
 ```
@@ -167,7 +170,10 @@ Will return:
     },
     "mana": 250,
     "health": 150,
-    "power": 50
+    "power": 50,
+    "asset_attack": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/attack_wyhosn.gif",
+    "asset_damaged": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/damaged_nh0sqr.gif",
+    "asset_idle": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/idle_n54c2q.gif"
 }
 ```
 
@@ -290,7 +296,10 @@ Authorization Required: **GET** `/api/game/character`
             "name": "Wizard",
             "base_health": 150,
             "base_mana": 250,
-            "base_power": 50
+            "base_power": 50,
+            "asset_attack": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/attack_wyhosn.gif",
+            "asset_damaged": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/damaged_nh0sqr.gif",
+            "asset_idle": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/idle_n54c2q.gif"
         },
         "nickname": "Jeff's Archer",
         "exp": "1000",
@@ -366,7 +375,10 @@ Authorization Required: **GET** `/api/game/character`
             "name": "Brute",
             "base_health": 250,
             "base_mana": 50,
-            "base_power": 250
+            "base_power": 250,
+            "asset_attack": null,
+            "asset_damaged": null,
+            "asset_idle": "https://res.cloudinary.com/minimalarena/image/upload/v1594503569/minimal_assets/classes/brute/idle_acivzz.gif"
         },
         "nickname": null,
         "exp": "0",
@@ -415,7 +427,10 @@ Authorization Required: **GET** `/api/game/character/:id`
         "name": "Wizard",
         "base_health": 150,
         "base_mana": 250,
-        "base_power": 50
+        "base_power": 50,
+        "asset_attack": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/attack_wyhosn.gif",
+        "asset_damaged": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/damaged_nh0sqr.gif",
+        "asset_idle": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/idle_n54c2q.gif"
     },
     "nickname": "Jeff's Archer",
     "exp": "1000",
@@ -498,10 +513,13 @@ Authorization Required: **GET** `/api/game/character/user/:id`
             "name": "Wizard",
             "base_health": 150,
             "base_mana": 250,
-            "base_power": 50
+            "base_power": 50,
+            "asset_attack": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/attack_wyhosn.gif",
+            "asset_damaged": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/damaged_nh0sqr.gif",
+            "asset_idle": "https://res.cloudinary.com/minimalarena/image/upload/v1594503558/minimal_assets/classes/wizard/idle_n54c2q.gif"
         },
         "nickname": "Jeff's Archer",
-        "exp": "1000",
+        "exp": 1000,
         "health": 230,
         "mana": 320,
         "power": 150,
@@ -588,7 +606,10 @@ Returns newly created character on success:
         "name": "Rogue",
         "base_health": 150,
         "base_mana": 100,
-        "base_power": 150
+        "base_power": 150,
+        "asset_attack": "https://res.cloudinary.com/minimalarena/image/upload/v1594503545/minimal_assets/classes/rogue/attack_tja60w.gif",
+        "asset_damaged": null,
+        "asset_idle": "https://res.cloudinary.com/minimalarena/image/upload/v1594503545/minimal_assets/classes/rogue/idle_nk9cde.gif"
     },
     "nickname": "Nickname Man",
     "exp": "0",
