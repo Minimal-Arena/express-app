@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function getSkills() {
-  return db("skills");
+  return db("skills").orderBy("id", "asc");
 }
 
 function getSkillById(id) {

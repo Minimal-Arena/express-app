@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
     } else if (token) {
         jwt.verify(token, secret, (err, decodedJWT) => {
             if (err) {
-                res.status(401).json({ message: "Incorrect password." });
+                res.status(401).json({ message: "Token is invalid or expired." });
             } else {
                 req.decodedJWT = decodedJWT;
                 next();

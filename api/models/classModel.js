@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function getClasses() {
-  return db("classes");
+  return db("classes").orderBy("id", "asc");
 }
 
 function getClassById(id) {
