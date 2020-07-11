@@ -10,7 +10,7 @@ CREATE TABLE Skills (
 	name string,
 	type string,
 	description string,
-	base_power integer,	
+	base_power integer,
 	cost integer
 );
 
@@ -19,9 +19,9 @@ CREATE TABLE Characters (
 	class_id integer,
 	nickname string,
 	exp integer,
-	health string,
-	mana string,
-	power string,
+	health integer,
+	mana integer,
+	power integer,
 	skill_slot1 integer,
 	skill_slot2 integer,
 	skill_slot3 integer,
@@ -46,7 +46,10 @@ CREATE TABLE Classes (
 	skill_slot3 integer,
 	mana integer,
 	health integer,
-	power integer
+	power integer,
+	asset_attack string,
+	asset_damaged string,
+	asset_idle string
 );
 
 CREATE TABLE Consumables (
