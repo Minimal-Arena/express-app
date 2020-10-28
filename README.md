@@ -13,7 +13,7 @@ MINIMAL ARENA server is alive
 
 ## Table of Contents
 
-- [Install](#install)
+- [Install & Setup](#install-&-setup)
 - [Authentication](#authentication)
     - [Register](#register-a-user) (POST)
     - [Login](#login-with-a-registered-user) (POST)
@@ -29,10 +29,32 @@ MINIMAL ARENA server is alive
         - [DELETE](#characters-delete)
 - [DB Schema](#database-schema)
 
-## Install
+## Install & Setup
 
+Install:
 ```
 npm install
+```
+Start (development):
+```
+npm run server
+```
+Start (production):
+```
+npm start
+```
+\
+Run migrations (create tables):
+```
+npm run migrate
+```
+Revert migrations:
+```
+npm run unmigrate
+```
+Seed database:
+```
+npm run seed
 ```
 
 # Authentication
