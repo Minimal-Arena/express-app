@@ -13,7 +13,7 @@ MINIMAL ARENA server is alive
 
 ## Table of Contents
 
-- [Install & Setup](#install-&-setup)
+- [Install & Setup](#install--setup)
 - [Authentication](#authentication)
     - [Register](#register-a-user) (POST)
     - [Login](#login-with-a-registered-user) (POST)
